@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from lxml import html
 from lxml import etree
 import requests
@@ -18,10 +18,10 @@ class Handler(BaseHTTPRequestHandler):
             url = "https://rocketleague.tracker.network/teams" + self.path
             page = self.get_page(url)
             players = self.get_players(page)
-            self.wfile.write(json.dumps(players))
+            self.wfile.write(bytes(json.dumps(players), 'UTF-8'))
         except:
             self._set_headers(500)
-            self.wfile.write('{"error": "failed to handle request"}')
+            self.wfile.write(bytes('{"error": "failed to handle request"}', 'UTF-8'))
 
     def get_page(self, url):
         response = requests.get(url)
