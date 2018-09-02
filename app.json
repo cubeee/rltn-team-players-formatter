@@ -1,0 +1,10 @@
+{
+  "name": "rltn-team-players-formatter",
+  "description": "Formats players from Rocket League Tracker Network teams into JSON",
+  "image": "heroku/python",
+  "repository": "https://github.com/cubeee/rltn-team-players-formatter",
+  "keywords": ["python" ],
+  "addons": [ ],
+  "env": {},
+  "environments": {}
+}
